@@ -60,6 +60,17 @@ class CustomSmoothMSELoss(nn.Module):
 
         return loss + self.smooth_weight * smoothness
 
+class DummyCalciumEphysDataset(torch.utils.data.Dataset):
+    def __init__(self, num_samples=100, seq_len=1000):
+        self.data = torch.randn(num_samples, seq_len)  
+        self.labels = torch.sin(self.data * 1.5)  
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        return self.data[idx], self.labels[idx]
+
 class DummyCalciumDataset(torch.utils.data.Dataset):
     def __init__(self, num_samples=100, seq_len=1000):
         self.data = torch.randn(num_samples, seq_len)
@@ -115,7 +126,7 @@ model = SeriesPredictor(input_length=1000).to(device)
 
 # Data
 train_data = DummyCalciumDataset(num_samples=80)
-test_data = DummyCalciumDataset(num_samples=20)
+test_data = DummyCalciumEphysDataset(num_samples=20)
 
 train_loader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
 test_loader = DataLoader(test_data, batch_size=BATCH_SIZE)

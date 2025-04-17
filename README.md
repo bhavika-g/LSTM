@@ -11,7 +11,7 @@ Narrowing Conv stack for final signal prediction
 
 Custom MSE + smoothness loss for biologically realistic outputs
 
-##Usage 
+## Usage 
 
 1. ``` bash
     git clone https://github.com/bhavika-g/LSTM.git

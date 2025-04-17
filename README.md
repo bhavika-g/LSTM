@@ -1,6 +1,6 @@
-# Calcium to Electrophysiology Prediction
+# Series to Series Bio-Signal Prediction using LSTM 
 
-This repository implements a deep neural network for predicting subthreshold electrical activity (whole-cell patch clamp ephys) from calcium imaging traces. The model combines temporal convolutions and stacked bidirectional LSTMs for sequence-to-sequence translation of neuronal activity.
+This repository implements a deep neural network for predicting subthreshold electrical activity (whole-cell patch clamp ephys) from calcium imaging traces. The model combines temporal convolutions and stacked bidirectional LSTMs for sequence-to-sequence translation of neuronal activity. 
 
 ## Architecture 
 1D Convolution Layers (SiLU, ELU activations)
